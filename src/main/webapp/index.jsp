@@ -9,28 +9,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>welcome</title>
+<title>this is Java client1</title>
 </head>
 <body>
-	<%
-		Assertion assertion = (Assertion) session.getAttribute(AbstractCasFilter.CONST_CAS_ASSERTION);
-		Map<String, Object> map = assertion.getPrincipal().getAttributes();
-		System.out.println(((AttributePrincipal) request.getUserPrincipal()).getAttributes());
-		System.out.println(map);
-		for (String key : map.keySet()) {
-			Object value = map.get(key);
-			System.out.println(key + ": " + value);
-		}
-		
-		Enumeration   e   =   request.getSession().getAttributeNames();   
-		Object obj1 = request.getSession().getAttribute("_const_cas_assertion_ session");
-		System.out.println(obj1);
-		while( e.hasMoreElements())   {   
-		    String sessionName=(String)e.nextElement();   
-		    out.println("\nsession item name="+sessionName);  
-		    out.println("\nsession item value="+ ((Assertion) request.getSession().getAttribute(sessionName)).getAttributes());  
-		} 
-		
-	%>
+    <h1 style="color:green">this is Java client1</h1>
+     <h2><a href="http://localhost">php client1</a></h2>
+     <h2>LoginName:<% out.println(((AttributePrincipal) request.getUserPrincipal()).getName()); %> </h2>
+     <h2><a href="http://localhost:8081/cas/logout?service=http%3A%2F%2Flocalhost%3A8080%2Fcas-client1">Logout</a></h2>
 </body>
 </html>
